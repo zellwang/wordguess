@@ -2,11 +2,19 @@ var sessionId = "";
 var serviceURL = "https://strikingly-hangman.herokuapp.com/game/on";
 var letters = "etaoinshrdlcumwfgypbvkjxqz";
 var userId = "zellwang@126.com";
+var isRobot = false;
+var letterFromRobot = "";
+
+var word;
+var totalWordCount;
+var wrongGuessCountOfCurrentWord;
+var guessedLetters = new Array();
 
 function sendPostRequest(action)
 {
     $.ajax({
         type: 'POST',
+        async: false,
         url: serviceURL,
         dataType: "json",
         data: getJSONData(action),
@@ -39,9 +47,11 @@ function getJSONData(action)
             };
             break;
         case "guessWord":
+            var letter = isRobot ? letterFromRobot : $("#letter").val();
+            guessedLetters.push(letter);
             json = {
                 "sessionId": sessionId,
-                "guess": $("#letter").val().toUpperCase(),
+                "guess": letter.toUpperCase(),
                 "action": "guessWord"
             };
             break;
@@ -115,9 +125,12 @@ function processGetWordData(data)
 {
     if (data.sessionId == sessionId)
     {
-        $("#word").html(data.data.word);
-        $("#totalWordCount").html(data.data.totalWordCount);
-        $("#wrongGuessCountOfCurrentWord").html(data.data.wrongGuessCountOfCurrentWord);
+        word = data.data.word;
+        totalWordCount = data.data.totalWordCount;
+        wrongGuessCountOfCurrentWord = data.data.wrongGuessCountOfCurrentWord;
+        $("#word").html(word);
+        $("#totalWordCount").html(totalWordCount);
+        $("#wrongGuessCountOfCurrentWord").html(wrongGuessCountOfCurrentWord);
         getResult();
         return true;
     }
@@ -133,9 +146,12 @@ function processGuessData(data)
 {
     if (data.sessionId == sessionId)
     {
-        $("#word").html(data.data.word);
-        $("#totalWordCount").html(data.data.totalWordCount);
-        $("#wrongGuessCountOfCurrentWord").html(data.data.wrongGuessCountOfCurrentWord);
+        word = data.data.word;
+        totalWordCount = data.data.totalWordCount;
+        wrongGuessCountOfCurrentWord = data.data.wrongGuessCountOfCurrentWord;
+        $("#word").html(word);
+        $("#totalWordCount").html(totalWordCount);
+        $("#wrongGuessCountOfCurrentWord").html(wrongGuessCountOfCurrentWord);
         $("#letter").val("");
         return true;
     }
