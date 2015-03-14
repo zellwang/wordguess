@@ -48,6 +48,7 @@ function getJSONData(action)
             break;
         case "guessWord":
             var letter = isRobot ? letterFromRobot : $("#letter").val();
+            console.log("guessing " + letter);
             guessedLetters.push(letter);
             json = {
                 "sessionId": sessionId,
@@ -127,6 +128,7 @@ function processGetWordData(data)
     {
         word = data.data.word;
         totalWordCount = data.data.totalWordCount;
+        console.log("totalWordCount: " + totalWordCount);
         wrongGuessCountOfCurrentWord = data.data.wrongGuessCountOfCurrentWord;
         $("#word").html(word);
         $("#totalWordCount").html(totalWordCount);
@@ -147,6 +149,7 @@ function processGuessData(data)
     if (data.sessionId == sessionId)
     {
         word = data.data.word;
+        console.log(word);
         totalWordCount = data.data.totalWordCount;
         wrongGuessCountOfCurrentWord = data.data.wrongGuessCountOfCurrentWord;
         $("#word").html(word);
@@ -167,6 +170,7 @@ function processGetResultData(data)
 {
     if (data.sessionId == sessionId)
     {
+        console.log("score: " + data.data.score);
         $("#correctWordCount").html(data.data.correctWordCount);
         $("#totalWrongGuessCount").html(data.data.totalWrongGuessCount);
         $("#score").html(data.data.score);

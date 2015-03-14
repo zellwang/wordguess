@@ -20,7 +20,7 @@ Then we will classify all the words by word length; like "boy" will be put into 
 
 Every time we get a word, we know it's length and it's pattern (like "**AB****"). We will then go to the corresponding basket and pick out all the words following this pattern.
 
-We will count the letter frequency among all these letters, and next guess will be "the most frequent word which we haven't guessed yet".
+We will count the letter frequency among all these letters, and next guess will be "the most frequent letter that haven't been guessed yet".
 
 ### User Guide
 
@@ -38,12 +38,12 @@ Another manual guessing tool is also available, it's designed for testing each R
 * There are 5 buttons on the page; from their name you can easily tell what they are for. Attention that "give me a word" includes a "getResult" call as well, for convenience propose.
 * play around and have fun!
 
-### To Be Improved
+### Known Issues and To Be Improved
 
 * Add more log info when robot is running, this will help the user to understand the process.
-* error handling
-* algorithm optimization
-* find a better dictionary
+* error handling: especially when a guess call fails, the letter is still considered "guessed", which makes the algorithm goes wrong a bit.
+* algorithm optimization: what I think of now is introducing 3 word lists: very often used words, often used words and all words. When we go into the case that 2 letters has the same frequency in the total word list, the letter that makes the word appear in the 1st or 2nd word list will have a higher priority.
+* find a better dictionary. This dictionary is not performing well when a word is conjugated or in plural form. Either we can find a word list considering this, or we can add some match rules (like -ing, -s) to deal with it. As it's hard to distinguish verbs and nouns, The 1st solution would be better.
 * using promise to avoid synchronized call
 
 ### References

@@ -71,7 +71,7 @@ function startRobot()
 
 function isWordMatch(wordFromDictionary, wordFromServer)
 {
-    var pattern = wordFromServer.replaceAllStars("[a-z]");
+    var pattern = wordFromServer.replaceAllStars("[A-Z]");
     var regExp = new RegExp(pattern, 'g');
     return regExp.test(wordFromDictionary);
 }
@@ -97,7 +97,24 @@ function getMostFrequentUnappearedLetter()
             biggestOccurenceIndex = i;
         }
     }
+    if (biggestOccurenceIndex == 0)
+    {
+        biggestOccurenceIndex = getMostFrequentUnappearedCharCodeFromWiki()-96;
+    }
     return String.fromCharCode(biggestOccurenceIndex+96);
+}
+
+function getMostFrequentUnappearedCharCodeFromWiki()
+{
+    for(var i=0; i<26; i++) 
+    { 
+        var charCode = letters.charCodeAt(i);
+        if (guessedLetters.indexOf(String.fromCharCode(charCode)) == -1)
+        {
+            return charCode;
+        }
+    }
+    return 96;
 }
 
 function clearLetterCount()
@@ -117,10 +134,11 @@ function clearGuessedLetters()
 function getNextGuessLetter(wordLength)
 {
     var subdictionary = classifiedWords[wordLength];
+    clearLetterCount();
     for (var index in subdictionary)
     {
         var wordFromDictionary = subdictionary[index];
-        if (isWordMatch(wordFromDictionary, word))
+        if (isWordMatch(wordFromDictionary.toUpperCase(), word))
         {
             updateLetterCount(wordFromDictionary);
         }
