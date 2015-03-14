@@ -1,29 +1,30 @@
 <html>
 <head>
-<script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
-<script type="text/javascript" src="queryTool.js"></script>
+    <script type="text/javascript" src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="queryTool.js"></script>
 </head>
 
 <body>
-<button onclick="startGame()">start</button>
-<div>------------------------------</div>
-<button onclick="giveMeAWord()">give me a word</button>
-<div id='sessionLine'>sessionId:<span id='sessionId'></span></div>
-<div id='totalWordCountLine'>totalWordCount:<span id='totalWordCount'></span></div>
-<div id='wrongGuessCountOfCurrentWordLine'>wrongGuessCountOfCurrentWord:<span id='wrongGuessCountOfCurrentWord'></span></div>
-<div>------------------------------</div>
-<div id='correctWordCountLine'>correctWordCount:<span id='correctWordCount'></span></div>
-<div id='totalWrongGuessCountLine'>totalWrongGuessCount:<span id='totalWrongGuessCount'></span></div>
-<div id='scoreLine'>score:<span id='score'></span></div>
-<div>------------------------------</div>
-<input type="text" id="letter"></input>
-<button onclick="makeAGuess()">send typed letter</button>
-<div id='wordLine'>word:<span id='word'></span></div>
-<div>------------------------------</div>
-<div>letter frequency: etaoinshrdlcumwfgypbvkjxqz</div>
-<div>------------------------------</div>
-<button onclick="submitScore()">Submit score</button>
-<div id="submitted"></div>
+    <button onclick="startGame()">start</button>
+    <div>------------------------------</div>
+    <button onclick="giveMeAWord()">give me a word</button>
+    <button onclick="getResult()">get result</button>
+    <div id='sessionLine'>sessionId:<span id='sessionId'></span></div>
+    <div id='totalWordCountLine'>totalWordCount:<span id='totalWordCount'></span></div>
+    <div id='wrongGuessCountOfCurrentWordLine'>wrongGuessCountOfCurrentWord:<span id='wrongGuessCountOfCurrentWord'></span></div>
+    <div>------------------------------</div>
+    <div id='correctWordCountLine'>correctWordCount:<span id='correctWordCount'></span></div>
+    <div id='totalWrongGuessCountLine'>totalWrongGuessCount:<span id='totalWrongGuessCount'></span></div>
+    <div id='scoreLine'>score:<span id='score'></span></div>
+    <div>------------------------------</div>
+    <input type="text" id="letter"></input>
+    <button onclick="makeAGuess()">send typed letter</button>
+    <div id='wordLine'>word:<span id='word'></span></div>
+    <div>------------------------------</div>
+    <div>letter frequency: etaoinshrdlcumwfgypbvkjxqz</div>
+    <div>------------------------------</div>
+    <button onclick="submitScore()">Submit score</button>
+    <div id="submitted"></div>
 </body>
 
 </html> 
