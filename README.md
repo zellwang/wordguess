@@ -4,7 +4,7 @@ Guess Word Robot
 Introduction
 ------------
 
-The robot is designed to play "a game" automatically. It's a word guessing game for two or more players. One player thinks of a word, phrase or sentence and the other tries to guess it by suggesting letters or numbers
+The robot is designed to play "a game" automatically. It's a word guessing game for two or more players. One player thinks of a word, phrase or sentence and the other tries to guess it by suggesting letters or numbers.
 
 For detailed rules, just search "One player thinks of a word" on wikipedia and you will get it:)
 
@@ -18,7 +18,7 @@ We will need to get a good dictionary first; the one I am using is from http://w
 
 Then we will classify all the words by word length; like "boy" will be put into the basket of "3-letter words", and "burst" into "5-letter words", etc.
 
-Every time we get a word, we know it's length and it's pattern (like "*AB**"). We will then go to the corresponding basket and pick out all the words following this pattern.
+Every time we get a word, we know it's length and it's pattern (like "**AB****"). We will then go to the corresponding basket and pick out all the words following this pattern.
 
 We will count the letter frequency among all these letters, and next guess will be "the most frequent word which we haven't guessed yet".
 
@@ -32,8 +32,7 @@ To run the auto guessing, you can follow instructions below:
 * You can click on "Robot go!" to start the guessing.
 * When you see a message started with "done!", guessing is finished. You can check the score, and submit it once you are happy with it.
 
-Another manual guessing tool is also available, it's designed for testing each REST call, but it's fun to play with it as well. Keep in mind that you cannot go through the dictionary as easily as the robot does:)
-To use it, you can follow instructions below:
+Another manual guessing tool is also available, it's designed for testing each REST call, but it's fun to play with it as well. Keep in mind that you cannot go through the dictionary as easily as the robot does:) To use it, you can follow instructions below:
 
 * Open index.html
 * There are 5 buttons on the page; from their name you can easily tell what they are for. Attention that "give me a word" includes a "getResult" call as well, for convenience propose.
@@ -41,10 +40,11 @@ To use it, you can follow instructions below:
 
 ### To Be Improved
 
-* using promise to avoid synchronized call
+* Add more log info when robot is running, this will help the user to understand the process.
 * error handling
 * algorithm optimization
 * find a better dictionary
+* using promise to avoid synchronized call
 
 ### References
 
