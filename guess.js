@@ -1,6 +1,7 @@
 var classifiedWords = new Array(20);
 var totalWordCount = 0;
 var letterCount = new Array(26);
+var suffixList = ["s", "es", "d", "ed", "er"];
 
 String.prototype.replaceAllStars = stringReplaceAllStars;
 
@@ -134,10 +135,60 @@ function clearGuessedLetters()
 function getNextGuessLetter(wordLength)
 {
     var subdictionary = classifiedWords[wordLength];
+    var subdictionary2 = [];
+    var subdictionary3 = [];
+    if (wordLength>=2)
+    {
+        subdictionary2 = classifiedWords[wordLength-1];
+    }
+    if (wordLength>=3)
+    {
+        subdictionary3 = classifiedWords[wordLength-2];
+    }
     clearLetterCount();
     for (var index in subdictionary)
     {
         var wordFromDictionary = subdictionary[index];
+        if (isWordMatch(wordFromDictionary.toUpperCase(), word))
+        {
+            updateLetterCount(wordFromDictionary);
+        }
+    }
+    for (var index in subdictionary2)
+    {
+        var wordFromDictionary = subdictionary2[index]+"s";
+        if (isWordMatch(wordFromDictionary.toUpperCase(), word))
+        {
+            updateLetterCount(wordFromDictionary);
+        }
+    }
+    for (var index in subdictionary2)
+    {
+        var wordFromDictionary = subdictionary2[index]+"d";
+        if (isWordMatch(wordFromDictionary.toUpperCase(), word))
+        {
+            updateLetterCount(wordFromDictionary);
+        }
+    }
+    for (var index in subdictionary3)
+    {
+        var wordFromDictionary = subdictionary3[index]+"ed";
+        if (isWordMatch(wordFromDictionary.toUpperCase(), word))
+        {
+            updateLetterCount(wordFromDictionary);
+        }
+    }
+    for (var index in subdictionary3)
+    {
+        var wordFromDictionary = subdictionary3[index]+"es";
+        if (isWordMatch(wordFromDictionary.toUpperCase(), word))
+        {
+            updateLetterCount(wordFromDictionary);
+        }
+    }
+    for (var index in subdictionary3)
+    {
+        var wordFromDictionary = subdictionary3[index]+"er";
         if (isWordMatch(wordFromDictionary.toUpperCase(), word))
         {
             updateLetterCount(wordFromDictionary);

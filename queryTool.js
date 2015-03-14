@@ -15,6 +15,7 @@ function sendPostRequest(action)
     $.ajax({
         type: 'POST',
         async: false,
+        timeout: 10000,
         url: serviceURL,
         dataType: "json",
         data: getJSONData(action),
