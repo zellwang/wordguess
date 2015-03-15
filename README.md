@@ -18,7 +18,7 @@ We will need to get a good dictionary first; the one I am using is from http://w
 
 Then we will classify all the words by word length; like "boy" will be put into the basket of "3-letter words", and "burst" into "5-letter words", etc.
 
-Every time we get a word, we know it's length and it's pattern (like "**AB****"). We will then go to the corresponding basket and pick out all the words following this pattern.
+Every time we get a word, we know it's length and it's pattern (like "\*AB\*\*"). We will then go to the corresponding basket and pick out all the words following this pattern.
 
 We will count the letter frequency among all these letters, and next guess will be "the most frequent letter that haven't been guessed yet".
 
@@ -26,6 +26,11 @@ We will count the letter frequency among all these letters, and next guess will 
 
 To run the auto guessing, you can follow instructions below:
 
+* Firstly, you need to tell the system about your connection information. Create a file called connection.js and write your id and server address in it, like this:
+```javascript
+var serviceURL = "https://www.domain-name.com/game/on";
+var userId = "yourId";
+```
 * Open robot.html
 * Choose word list (currently using words.txt) and click on "Process words".
 * When you see an information started with "loaded:", it means the dictionary is loaded and robot is ready to go.

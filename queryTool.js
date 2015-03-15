@@ -1,7 +1,5 @@
 var sessionId = "";
-var serviceURL = "https://strikingly-hangman.herokuapp.com/game/on";
 var letters = "etaoinshrdlcumwfgypbvkjxqz";
-var userId = "zellwang@126.com";
 var isRobot = false;
 var letterFromRobot = "";
 
