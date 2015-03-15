@@ -12,7 +12,6 @@ function stringReplaceAllStars(ARepText){
 
 function preprocessWords()
 {
-    $("#done").html(document.URL);
     initClassifiedWords();
     clearLetterCount();
     var file = document.getElementById("file").files[0]; 
@@ -56,7 +55,7 @@ function dealWithOneWord()
 
 function printDoneMessage()
 {
-    $("#done").html("done! " + document.URL);
+    $("#done").html("done!");
 }
 
 function startRobot()

@@ -35,7 +35,7 @@ var userId = "yourId";
 * Choose word list (currently using words.txt) and click on "Process words".
 * When you see an information started with "loaded:", it means the dictionary is loaded and robot is ready to go.
 * You can click on "Robot go!" to start the guessing.
-* When you see a message started with "done!", guessing is finished. You can check the score, and submit it once you are happy with it.
+* When you see the message "done!", guessing is finished. You can check the score, and submit it once you are happy with it.
 
 Another manual guessing tool is also available, it's designed for testing each REST call, but it's fun to play with it as well. Keep in mind that you cannot go through the dictionary as easily as the robot does:) To use it, you can follow instructions below:
 
@@ -59,6 +59,10 @@ Another manual guessing tool is also available, it's designed for testing each R
 
 * handle errors better: if we fail to get a word or guess a letter, do it again
 * score is not improved though...
+
+0.0.4 
+
+* improve UI a bit
 
 ### Known Issues and To Be Improved
 
