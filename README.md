@@ -60,6 +60,10 @@ Another manual guessing tool is also available, it's designed for testing each R
 * handle errors better: if we fail to get a word or guess a letter, do it again
 * score is not improved though...
 
+0.0.4 
+
+* improve UI a bit
+
 ### Known Issues and To Be Improved
 
 * Add more log info when robot is running, this will help the user to understand the process.
