@@ -42,6 +42,10 @@ function initClassifiedWords()
 function dealWithOneWord()
 {
     giveMeAWord();
+    while (isGetWordFailed)
+    {
+        giveMeAWord();
+    }
     while (word.indexOf("*") >= 0 && wrongGuessCountOfCurrentWord < 10)
     {
         var wordLength = word.length;

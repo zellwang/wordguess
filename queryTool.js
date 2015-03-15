@@ -3,6 +3,7 @@ var letters = "etaoinshrdlcumwfgypbvkjxqz";
 var isRobot = false;
 var letterFromRobot = "";
 var guessingLetter = "";
+var isGetWordFailed = false;
 
 var word;
 var totalWordCount;
@@ -25,6 +26,10 @@ function sendPostRequest(action)
         },
         error: function(res) {
             console.log(res);
+            if (action == "nextWord")
+            {
+                isGetWordFailed = true;
+            }
         }
     });
 }
@@ -123,6 +128,7 @@ function giveMeAWord()
 
 function processGetWordData(data)
 {
+    isGetWordFailed = false;
     if (data.sessionId == sessionId)
     {
         word = data.data.word;
