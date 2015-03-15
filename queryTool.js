@@ -2,6 +2,7 @@ var sessionId = "";
 var letters = "etaoinshrdlcumwfgypbvkjxqz";
 var isRobot = false;
 var letterFromRobot = "";
+var guessingLetter = "";
 
 var word;
 var totalWordCount;
@@ -46,12 +47,11 @@ function getJSONData(action)
             };
             break;
         case "guessWord":
-            var letter = isRobot ? letterFromRobot : $("#letter").val();
-            console.log("guessing " + letter);
-            guessedLetters.push(letter);
+            guessingLetter = isRobot ? letterFromRobot : $("#letter").val();
+            console.log("guessing " + guessingLetter);
             json = {
                 "sessionId": sessionId,
-                "guess": letter.toUpperCase(),
+                "guess": guessingLetter.toUpperCase(),
                 "action": "guessWord"
             };
             break;
@@ -151,6 +151,7 @@ function processGuessData(data)
         console.log(word);
         totalWordCount = data.data.totalWordCount;
         wrongGuessCountOfCurrentWord = data.data.wrongGuessCountOfCurrentWord;
+        guessedLetters.push(guessingLetter);
         $("#word").html(word);
         $("#totalWordCount").html(totalWordCount);
         $("#wrongGuessCountOfCurrentWord").html(wrongGuessCountOfCurrentWord);
